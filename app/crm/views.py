@@ -16,6 +16,7 @@ class AddUserView(View):
     @request_schema(UserAddSchema)
     @response_schema(OkResponseSchema, 200)
     async def post(self):
+        1 / 0
         data = self.request["data"]
         user = User(email=data["email"], id_=uuid.uuid4())
         await self.request.app.crm_accessor.add_user(user)
